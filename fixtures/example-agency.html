@@ -1,0 +1,74 @@
+<!doctype html>
+<!--
+  Synthetic listing page for the reference scraper.
+
+  Not a copy of any real agency's markup. It is written to contain the four
+  things that actually make production scraping hard, so the normalizer is
+  exercised rather than merely imported:
+
+    1. Prices in three different notations, including European separators
+       ("$1,250,000", "USD 1.190.000", "1295000").
+    2. Areas in three different units — m², ft² and acres — which the
+       normalizer converts to m² so the matcher can compare them.
+    3. A card that repeats a listing already seen (duplicate sourceId), which
+       the scraper must drop before the matcher sees it.
+    4. Missing fields, because sparse records are the normal case.
+-->
+<html lang="en">
+<head><meta charset="utf-8"><title>Example Agency — Nosara listings</title></head>
+<body>
+  <main class="results">
+
+    <article class="property-card">
+      <a class="property-link" href="/listing/ocean-view-villa-guiones-8841">Ocean-view villa</a>
+      <h2 class="property-title">Ocean-view Villa above Playa Guiones</h2>
+      <span class="property-location">Playa Guiones, Nosara</span>
+      <span class="property-price">$1,250,000</span>
+      <span data-beds="3"></span>
+      <span data-baths="3"></span>
+      <span class="property-area">280 m²</span>
+      <span class="property-lot">1,200 m²</span>
+      <img class="property-image" src="https://example-agency.test/img/8841.jpg" alt="">
+    </article>
+
+    <!-- Area in square feet. 2,960 ft² ≈ 275 m². -->
+    <article class="property-card">
+      <a class="property-link" href="/listing/casa-pochote-pelada-9107">Casa Pochote</a>
+      <h2 class="property-title">Casa Pochote — walking distance to Playa Pelada</h2>
+      <span class="property-location">Playa Pelada</span>
+      <span class="property-price">USD 890.000</span>
+      <span data-beds="2"></span>
+      <span data-baths="2"></span>
+      <span class="property-area">1,884 sq ft</span>
+      <span class="property-lot">0.25 acres</span>
+      <img class="property-image" src="https://example-agency.test/img/9107.jpg" alt="">
+    </article>
+
+    <!-- Sparse: no bathroom count, no lot, no image. Normal, not exceptional. -->
+    <article class="property-card">
+      <a class="property-link" href="/listing/ridge-lot-esperanza-7732">Ridge lot</a>
+      <h2 class="property-title">Titled ridge lot with ocean view, Esperanza</h2>
+      <span class="property-location">Esperanza</span>
+      <span class="property-price">395000</span>
+      <span data-beds=""></span>
+      <span class="property-area"></span>
+      <span class="property-lot">2.1 acres</span>
+    </article>
+
+    <!-- Same listing as the first card, reached again through pagination.
+         The scraper must dedupe on sourceId; the matcher must never see it. -->
+    <article class="property-card">
+      <a class="property-link" href="/listing/ocean-view-villa-guiones-8841">Ocean-view villa</a>
+      <h2 class="property-title">Ocean-view Villa above Playa Guiones</h2>
+      <span class="property-location">Playa Guiones, Nosara</span>
+      <span class="property-price">$1,250,000</span>
+      <span data-beds="3"></span>
+      <span data-baths="3"></span>
+      <span class="property-area">280 m²</span>
+      <span class="property-lot">1,200 m²</span>
+      <img class="property-image" src="https://example-agency.test/img/8841.jpg" alt="">
+    </article>
+
+  </main>
+</body>
+</html>

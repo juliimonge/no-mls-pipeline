@@ -1,0 +1,77 @@
+[
+  {
+    "_case": "Same house, three agencies. All three pair directly.",
+    "id": "L1", "source": "remax",
+    "title": "Ocean-view villa above Playa Guiones",
+    "location": "Guiones", "price_usd": 1250000,
+    "bedrooms": 3, "bathrooms": 3, "sqm": 280, "lot_sqm": 1200,
+    "property_type": "villa", "image_urls": ["https://example.test/l1.jpg"]
+  },
+  {
+    "_case": "Same house — 3.5% price difference, 1.8% area difference.",
+    "id": "L2", "source": "century21",
+    "title": "Villa with ocean views, Guiones",
+    "location": "Playa Guiones", "price_usd": 1295000,
+    "bedrooms": 3, "bathrooms": 3, "sqm": 275, "lot_sqm": 1200,
+    "property_type": "villa", "image_urls": ["https://example.test/l2.jpg"]
+  },
+  {
+    "_case": "Same house — sparse record: no baths, no construction area. Still matches on price + bedrooms + lot.",
+    "id": "L3", "source": "sothebys",
+    "title": "Guiones hillside villa",
+    "location": "Nosara", "price_usd": 1190000,
+    "bedrooms": 3, "bathrooms": null, "sqm": null, "lot_sqm": 1150,
+    "property_type": "villa", "image_urls": []
+  },
+
+  {
+    "_case": "Transitivity — T1 pairs with T2 but NOT with T3 directly.",
+    "id": "T1", "source": "remax",
+    "title": "Casa Pochote, walking distance to the beach",
+    "location": "Pelada", "price_usd": 800000,
+    "bedrooms": 2, "bathrooms": 2, "sqm": 150, "lot_sqm": null,
+    "property_type": "house", "image_urls": ["https://example.test/t1.jpg"]
+  },
+  {
+    "_case": "Transitivity — the bridge. Pairs with both T1 and T3.",
+    "id": "T2", "source": "tropicasa",
+    "title": "Casa Pochote",
+    "location": "Playa Pelada", "price_usd": 890000,
+    "bedrooms": 2, "bathrooms": 2, "sqm": 175, "lot_sqm": null,
+    "property_type": "house", "image_urls": ["https://example.test/t2.jpg"]
+  },
+  {
+    "_case": "Transitivity — vs T1 alone: price differs 18.8% and area 26.8%, both outside tolerance. Only reachable through T2.",
+    "id": "T3", "source": "mango",
+    "title": "Charming home near Playa Pelada",
+    "location": "Pelada", "price_usd": 985000,
+    "bedrooms": 2, "bathrooms": 2, "sqm": 205, "lot_sqm": null,
+    "property_type": "house", "image_urls": []
+  },
+
+  {
+    "_case": "Bedroom gate — everything else matches B2 closely.",
+    "id": "B1", "source": "coldwell",
+    "title": "Three-bedroom home, Esperanza",
+    "location": "Esperanza", "price_usd": 650000,
+    "bedrooms": 3, "bathrooms": 2, "sqm": 200, "lot_sqm": 800,
+    "property_type": "house", "image_urls": ["https://example.test/b1.jpg"]
+  },
+  {
+    "_case": "Bedroom gate — price, baths, area and lot all inside tolerance, but four bedrooms, not three. Must stay separate.",
+    "id": "B2", "source": "wanderlust",
+    "title": "Four-bedroom home in Esperanza",
+    "location": "Esperanza", "price_usd": 655000,
+    "bedrooms": 4, "bathrooms": 2, "sqm": 205, "lot_sqm": 810,
+    "property_type": "house", "image_urls": ["https://example.test/b2.jpg"]
+  },
+
+  {
+    "_case": "Single source — a genuine exclusive, or simply not carried elsewhere. Group of one, not an open listing.",
+    "id": "S1", "source": "bluezone",
+    "title": "Estate on the ridge, 5 bed",
+    "location": "Nosara", "price_usd": 2400000,
+    "bedrooms": 5, "bathrooms": 5, "sqm": 520, "lot_sqm": 3000,
+    "property_type": "villa", "image_urls": ["https://example.test/s1.jpg"]
+  }
+]

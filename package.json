@@ -1,0 +1,20 @@
+{
+  "name": "no-mls-pipeline",
+  "version": "1.0.0",
+  "description": "Entity resolution across property listings from agencies that share no key. Nosara, Costa Rica — a market with no MLS.",
+  "license": "MIT",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "demo": "tsx scripts/demo-match.ts",
+    "test": "tsx --test tests/*.test.ts",
+    "typecheck": "tsc --noEmit",
+    "demo:scrape": "tsx scripts/demo-scrape.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^20.19.0",
+    "cheerio": "^1.2.0",
+    "tsx": "^4.21.0",
+    "typescript": "^5.9.0"
+  }
+}

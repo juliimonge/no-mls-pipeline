@@ -1,0 +1,11 @@
+node_modules/
+dist/
+.next/
+*.tsbuildinfo
+
+# Secrets never go in git.
+.env
+.env.*
+!.env.example
+
+.DS_Store
